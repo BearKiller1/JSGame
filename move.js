@@ -1,8 +1,6 @@
 var obj = null;
 
-window.onload = function() {
-    GetObj();
-};
+window.onload = function() { GetObj() };
 
 GetObj = () => {
     obj = document.getElementById("object");
@@ -23,9 +21,15 @@ class Move {
     down = () => {
         obj.style.top = parseInt(obj.style.top) + 10 + "px";
     }
+
     jump = () => {
-        obj.style.left = parseInt(obj.style.left) + 10 + "px";
-        obj.style.top = parseInt(obj.style.top) - 10 + "px";
+        for (let i = 0; i < 10; i++) {
+            setInterval( () => {
+                obj.style.left = parseInt(obj.style.left) + 1 + "px";
+                obj.style.top = parseInt(obj.style.top) - 1 + "px";
+                return 0;
+            }, 100);
+        }
     }
 }
 
@@ -49,6 +53,7 @@ GetKeyAndMove = (e) => {
             move_obj.down();
             break;
         case 32:
+            console.log(parseInt(obj.style.top));
             move_obj.jump();
     }
     
