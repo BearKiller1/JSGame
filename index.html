@@ -1,14 +1,23 @@
-<html>
-    <head>
-        <title>JavaScript - Move Object with Arrow Keys using JavaScript Function.</title>
-        <script type="text/javascript" src="index.js">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="move.js"></script>
+    <style>
+        #object{
+            position: relative;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body onkeydown="GetKeyAndMove(event)">
 
-        </script>
-    </head>
+    <img id="image1" src="" alt="includehelp.com" />
 
-    <body onkeydown="getKeyAndMove(event)">
-        <h1>JavaScript - Move Object with Arrow Keys using JavaScript Function.</h1>
-        <h2>Use Arrow keys to move object left, top, right and down.</h2>
-        <img id="image1" src="" alt="includehelp.com" />
-    </body>
+    <img src="https://www.kindpng.com/picc/m/125-1253886_pixel-character-transparent-background-hd-png-download.png" alt="" id="object">
+</body>
 </html>

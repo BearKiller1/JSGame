@@ -1,6 +1,4 @@
-//init object globally
 var objImage = null;
-
 
 window.onload = init;
 
@@ -88,3 +86,34 @@ function moveRight() {
 function moveDown() {
     objImage.style.top = parseInt(objImage.style.top) + 10 + "px";
 }
+
+
+
+
+
+function GetObj() {
+    var obj = document.getElementById("object");
+}
+
+function getKeyAndMove(e) {
+    var key = e.which || e.keyCode;
+    
+    switch (key) {
+        case 37: 
+            moveLeft();
+            break;
+        case 38:
+            moveUp();
+            break;
+        case 39:
+            moveRight();
+            break;
+        case 40:
+            moveDown();
+            break;
+        case 32:
+            jump();
+    }
+}
+
+function moveLeft() {  }
