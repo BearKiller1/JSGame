@@ -1,5 +1,4 @@
-var obj = null;
-
+ 
 window.onload = function() { GetObj() };
 
 GetObj = () => {
@@ -22,17 +21,36 @@ class Move {
         obj.style.top = parseInt(obj.style.top) + 10 + "px";
     }
 
-    jump = () => {
-        for (let i = 0; i < 10; i++) {
-            setInterval( () => {
-                obj.style.left = parseInt(obj.style.left) + 1 + "px";
-                obj.style.top = parseInt(obj.style.top) - 1 + "px";
-                return 0;
-            }, 100);
+    jumpUp = () => {        
+        setTimeout(function() {  
+            obj.style.top = parseInt(obj.style.top) - 2 + "px";
+            i++;
+            if (i < 25) {
+                move_obj.jumpUp();
+            }
+        }, 10)
+        if(i == 24){
+            i = 0;
+            this.jumpDown();
         }
+    }
+
+    jumpDown = () => {
+        console.log(i+"movedi");
+        setTimeout(function() {
+            obj.style.top = parseInt(obj.style.top) + 5 + "px";
+            i++;
+            if (i < 25) {
+                move_obj.jumpDown();
+            }
+        }, 10)
     }
 }
 
+var i = 1;  
+var obj = null;
+var sender = null;
+var move_obj = new Move();
 
 GetKeyAndMove = (e) => {
 
@@ -53,8 +71,10 @@ GetKeyAndMove = (e) => {
             move_obj.down();
             break;
         case 32:
-            console.log(parseInt(obj.style.top));
-            move_obj.jump();
+            i = 0;
+            move_obj.jumpUp()
+            console.log(i);
+
     }
     
 }
