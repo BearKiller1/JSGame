@@ -29,8 +29,6 @@ checkers = () => {
         }
     }, 10);
 }
-
-
 class Move {
     left = () => {
         console.log(obj.style.top + wall.style.top);
