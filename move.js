@@ -39,8 +39,6 @@ class Move {
     }
 
     right = () => {
-        console.log("wall->"+parseInt(wall.style.top) + " obj->"+parseInt(obj.style.top));
-        // console.log(parseInt(wall.style.top)  > parseInt(obj.style.top));
         if(parseInt(wall.style.left) - 85 > parseInt(obj.style.left) || parseInt(wall.style.top) - 99 > parseInt(obj.style.top)){
             obj.style.left = parseInt(obj.style.left) + 10 + "px";
         }
@@ -48,11 +46,10 @@ class Move {
     }
 
     down = () => {
-        console.log(parseInt(wall.style.left) - 85 < parseInt(obj.style.left) );
         if(parseInt(ground_img.style.top) - parseInt(obj.style.top) <= 100){
             obj.style.top = "650px";
         }
-        else if(parseInt(wall.style.left) - 85 < parseInt(obj.style.left) ){
+        else if(parseInt(wall.style.left) - 80 < parseInt(obj.style.left) && parseInt(obj.style.top)+100 >= parseInt(wall.style.top) &&  parseInt(obj.style.left) < parseInt(wall.style.left) + parseInt(wall.style.width)-20 ){
             console.log("wallzea");
         }
         else{
@@ -67,7 +64,10 @@ class Move {
         }
         else{
             if(parseInt(obj.style.top) > 525){
-                setTimeout(function() {  
+                setTimeout(function() {
+                    if(parseInt(wall.style.left) - 80 < parseInt(obj.style.left) && parseInt(obj.style.top)+100 >= parseInt(wall.style.top) &&  parseInt(obj.style.left) < parseInt(wall.style.left) + parseInt(wall.style.width)-20 ){
+                        console.log("wallzea");
+                    }  
                     obj.style.top = parseInt(obj.style.top) - 5 + "px";
                     if( obj.style.transform === "scaleX(1)"){
                         obj.style.left = parseInt(obj.style.left) + 2 + "px";
