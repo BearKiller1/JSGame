@@ -18,7 +18,6 @@ GetObj = () => {
     wall.style.cssText = "position: absolute; width: 50px; height: 100px; top:650px; left: 200px; background-image: url('https://media.istockphoto.com/photos/grey-stones-texture-picture-id1164803980?k=20&m=1164803980&s=612x612&w=0&h=AGaz616SB3brh08zEgXbH0ujoZ8d--rzPEQ4L8teUno=')";
 
     checkers();
-
 }
 
 checkers = () => {
@@ -31,10 +30,7 @@ checkers = () => {
 }
 class Move {
     left = () => {
-        console.log(obj.style.top + wall.style.top);
-        if(parseInt(wall.style.left) <= parseInt(obj.style.left) - 40 || parseInt(obj.style.left) < 200 || (obj.style.top + 80) < wall.style.top ){
-            obj.style.left = parseInt(obj.style.left) - 10 + "px";
-        }
+        obj.style.left = parseInt(obj.style.left) - 10 + "px";
         obj.style.transform = "scaleX(-1)";
     }
 
@@ -43,17 +39,21 @@ class Move {
     }
 
     right = () => {
-        console.log(obj.style.top + wall.style.top);
-        // console.log("wall position -> " + wall.style.left + "|| obj position ->" + obj.style.left);
-        if(parseInt(wall.style.left) != parseInt(obj.style.left) + 80 || (obj.style.top - 80) < wall.style.top ){
+        console.log("wall->"+parseInt(wall.style.top) + " obj->"+parseInt(obj.style.top));
+        // console.log(parseInt(wall.style.top)  > parseInt(obj.style.top));
+        if(parseInt(wall.style.left) - 85 > parseInt(obj.style.left) || parseInt(wall.style.top) - 99 > parseInt(obj.style.top)){
             obj.style.left = parseInt(obj.style.left) + 10 + "px";
-            obj.style.transform = "scaleX(1)";
         }
+        obj.style.transform = "scaleX(1)";
     }
 
     down = () => {
+        console.log(parseInt(wall.style.left) - 85 < parseInt(obj.style.left) );
         if(parseInt(ground_img.style.top) - parseInt(obj.style.top) <= 100){
             obj.style.top = "650px";
+        }
+        else if(parseInt(wall.style.left) - 85 < parseInt(obj.style.left) ){
+            console.log("wallzea");
         }
         else{
             obj.style.top = parseInt(obj.style.top) + 10 + "px";
