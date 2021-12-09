@@ -63,22 +63,23 @@ class Move {
             this.jumpDown();
         }
         else{
-            if(parseInt(obj.style.top) > 525){
+            if(parseInt(wall.style.left) - 100 < parseInt(obj.style.left) && parseInt(obj.style.top)+100 >= parseInt(wall.style.top) &&  parseInt(obj.style.left) < parseInt(wall.style.left) + parseInt(wall.style.width)-20 ){
+
+            }
+            else if(parseInt(obj.style.top) > 525){
                 setTimeout(function() {
-                    if(parseInt(wall.style.left) - 80 < parseInt(obj.style.left) && parseInt(obj.style.top)+100 >= parseInt(wall.style.top) &&  parseInt(obj.style.left) < parseInt(wall.style.left) + parseInt(wall.style.width)-20 ){
-                        console.log("wallzea");
-                    }  
+                    i++;
                     obj.style.top = parseInt(obj.style.top) - 5 + "px";
-                    if( obj.style.transform === "scaleX(1)"){
+                    if(obj.style.transform === "scaleX(1)"){
                         obj.style.left = parseInt(obj.style.left) + 2 + "px";
                     }
                     else{
                         obj.style.left = parseInt(obj.style.left) - 2 + "px";
                     }
-                    i++;
-                    if (i < 25) {
+                    if(i < 25) {
                         move_obj.jumpUp();
                     }
+
                 }, 10)
             }
             else{
@@ -89,22 +90,27 @@ class Move {
 
     }
 
-    jumpDown = () => {
-        setTimeout(function() {
-            obj.style.top = parseInt(obj.style.top) + 5 + "px";
-
-            if( obj.style.transform === "scaleX(1)"){
-                obj.style.left = parseInt(obj.style.left) + 2 + "px";
-            }
-            else{
-                obj.style.left = parseInt(obj.style.left) - 2 + "px";
-            }
-
-            i++;
-            if (i < 24) {
-                move_obj.jumpDown();
-            }
-        }, 10)
+    jumpDown = (n) => {
+        if(n){
+            console.log("stop");
+        }
+        else{
+            setTimeout(function() {
+                obj.style.top = parseInt(obj.style.top) + 5 + "px";
+    
+                if( obj.style.transform === "scaleX(1)"){
+                    obj.style.left = parseInt(obj.style.left) + 2 + "px";
+                }
+                else{
+                    obj.style.left = parseInt(obj.style.left) - 2 + "px";
+                }
+    
+                i++;
+                if (i < 24) {
+                    move_obj.jumpDown();
+                }
+            }, 10)
+        }
     }
 }
 
